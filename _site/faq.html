@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta name="author" contents="Dennis Guse and Frank Haase">
+  <meta name="date" content='23 June 2016'>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" type="image/svg+xml" href="/images/steak-logo-centered.svg">
+  <link rel="icon" type="image/x-icon" href="/images/steak-logo-centered.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <title> The STEAK Project: The FAQ</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+  <style>
+.initialAnimation {
+position: fixed;
+padding: 0;
+margin: 0;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+
+background-image: url("/images/steak-logo.svg");
+background-repeat:no-repeat;
+background-position: center;
+background-size:30%;
+opacity:0;
+
+animation-name: initialAnimation;
+animation-duration: 4s;
+animation-fill-mode: forwards;
+}
+@keyframes initialAnimation {
+    0%   {opacity:1;background-color: red;}
+    25%  {opacity:1;background-color: yellow;}
+    50%  {opacity:1;background-color: blue;}
+    99%  {opacity:0;background-color: green;height:100%;width:100%;}
+    100% {height:0px;width:0px}
+}
+</style>
+</head>
+
+<body>
+<div class="menu" id="menu">
+  <div>
+    <h1 class="project_title">
+       <a href="/">
+         <img src="/images/steak-logo.svg" alt="Logo" style="width:8em;top:10%" /><br />
+         STEAK <p style="font-size: small">Spatial TelephonE conferencing for AsterisK</p>
+       </a>
+    </h1>
+    <br />
+
+    <nav><a href="/news#content">News</a> <small><a href="/atom.xml">(RSS Feed)</a></small></nav>
+    <nav><a href="/project#content">The Project</a></nav>
+    <nav><a href="/motivation#content">The Motivation</a></nav>
+    <nav><a href="/advantages#content">The Advantages</a></nav>
+    <nav><a href="/theory#content">The Theory of Spatial Rendering</a></nav>
+    <nav><a href="/implementation#content">The Implementation</a></nav>
+    <nav><a href="/demo#content">The Demo</a></nav>
+    <nav><s><a href="/experiments#content">The Experiments</a></s></nav>
+    <nav><a href="/faq#content">The FAQ</a></nav>
+    <nav><a href="/about#content">About</a></nav>
+
+    <br />
+    <div>
+      <s>&copy; 2016. All rights reserved.</s>&nbsp;
+      <a href="https://creativecommons.org/"><img src="/images/license.svg" alt="CC-BY-SA 4.0" style="height: 1em"></a>
+    </div>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div style="margin-bottom: 3em; font-size: 0.75em; text-align: center;"> --- 23 June 2016 --- </div>
+
+  <h1 id="the-faq">The FAQ</h1>
+
+<h2 id="the-steak-project">The STEAK Project</h2>
+
+<h3 id="is-there-funding-for-the-project">Is there funding for the project?</h3>
+
+<p>Yes.</p>
+
+<p>The project is funded via the <a href="http://www.softwarecampus.de/">SoftwareCampus</a>.
+Funding period is 2016-01-01 until 2016-12-31.</p>
+
+<h3 id="are-the-steak-modifications-going-to-merged-back-to-asterisk">Are the STEAK-modifications going to merged back to Asterisk?</h3>
+
+<p>We hope so.</p>
+
+<p>It is the only option to maintain the project outcome beyond 2016-12-31.</p>
+
+<h3 id="who-came-up-with-the-idea-to-name-the-project-steak">Who came up with the idea to name the project “STEAK”?</h3>
+
+<p>An acronym generator…
+and we were keen on a fancy project name.</p>
+
+<h2 id="the-demo">The Demo</h2>
+
+<h3 id="which-webbrowser-are-supported-for-the-demo">Which webbrowser are supported for the demo?</h3>
+
+<p>Thanks for asking.</p>
+
+<p>We can only support <a href="https://www.google.com/chrome/">Google Chrome</a> and <a href="https://www.chromium.org/">Chromium</a>.
+Although <a href="https://webrtc.org/">WebRTC</a> is already some years old, it is not yet stable.
+the issue is that the major webbrowser do not provide the same feature set (for example <a href="http://caniuse.com/#feat=rtcpeerconnection">rtcpeerconnection</a>) and furthermore behave differently.</p>
+
+<p>We just do not have the (spare) time for this.</p>
+
+<h3 id="can-i-use-the-demo-system-for-my-daily-life">Can I use the demo system for my daily life?</h3>
+
+<p>Please don’t.</p>
+
+<p>Just keep in mind that this system is not <em>production-ready</em>.
+It is neither especially <strong>secured</strong> nor can we guarantee its availability.</p>
+
+<p>In fact, we use pretty old hardware: might fail at any moment.</p>
+
+<h3 id="the-demo-system-is-offline-when-is-going-to-be-online-again">The demo system is offline. When is going to be online again?</h3>
+
+<p>Don’t know.</p>
+
+<p>Depends on the reason it is offline.</p>
+
+<h3 id="how-can-i-report-an-issue-with-demo">How can I report an issue with demo?</h3>
+
+<p>Sorry hearing about this.</p>
+
+<p>Please verify that this is <strong>not</strong> an issue with:</p>
+
+<ul>
+  <li><em>(a)</em> your webbrowser: <a href="https://www.google.com/chrome/">Google Chrome</a> and <a href="https://www.chromium.org/">Chromium</a>, and</li>
+  <li><em>(b)</em> your Internet connection: firewalls etc., and</li>
+  <li><em>(c)</em> check the <a href="https://developer.chrome.com/devtools"><em>console output</em></a> of your webbrowser.</li>
+</ul>
+
+<p>If your issue persists please contact create a <em>bug report</em> (<a href="https://github.com/steakconferencing/">https://github.com/steakconferencing/</a>) or contact us directly (see <a href="http://www.steakconferencing.de/about">About</a>).</p>
+
+<h2 id="the-website">The Website</h2>
+
+<h3 id="why-does-the-website-looks-weird-in-my-webbrowser">Why does the website looks weird in my webbrowser?</h3>
+
+<p>Most likely your webbrowser does not support <a href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> with <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets#CSS_3">CSS3</a> and <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a>.</p>
+
+<p>The videos are coded in <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264</a>.</p>
+
+<h3 id="who-came-up-with-the-style-of-the-website">Who came up with the style of the website?</h3>
+<p>The style of the webpage is based upon a template called <a href="https://github.com/poole/hyde">HYDE</a>.</p>
+
+<p>We just changed some things.</p>
+
+
+  <div style="text-align: center;" class="backtotop"><a href="#content">↩</a><a href="#menu">↩</a></div>
+</div>
+
+</body>
+</html>

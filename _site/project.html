@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta name="author" contents="Dennis Guse and Frank Haase">
+  <meta name="date" content='28 June 2016'>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" type="image/svg+xml" href="/images/steak-logo-centered.svg">
+  <link rel="icon" type="image/x-icon" href="/images/steak-logo-centered.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <title> The STEAK Project: The Project</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+  <style>
+.initialAnimation {
+position: fixed;
+padding: 0;
+margin: 0;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+
+background-image: url("/images/steak-logo.svg");
+background-repeat:no-repeat;
+background-position: center;
+background-size:30%;
+opacity:0;
+
+animation-name: initialAnimation;
+animation-duration: 4s;
+animation-fill-mode: forwards;
+}
+@keyframes initialAnimation {
+    0%   {opacity:1;background-color: red;}
+    25%  {opacity:1;background-color: yellow;}
+    50%  {opacity:1;background-color: blue;}
+    99%  {opacity:0;background-color: green;height:100%;width:100%;}
+    100% {height:0px;width:0px}
+}
+</style>
+</head>
+
+<body>
+<div class="menu" id="menu">
+  <div>
+    <h1 class="project_title">
+       <a href="/">
+         <img src="/images/steak-logo.svg" alt="Logo" style="width:8em;top:10%" /><br />
+         STEAK <p style="font-size: small">Spatial TelephonE conferencing for AsterisK</p>
+       </a>
+    </h1>
+    <br />
+
+    <nav><a href="/news#content">News</a> <small><a href="/atom.xml">(RSS Feed)</a></small></nav>
+    <nav><a href="/project#content">The Project</a></nav>
+    <nav><a href="/motivation#content">The Motivation</a></nav>
+    <nav><a href="/advantages#content">The Advantages</a></nav>
+    <nav><a href="/theory#content">The Theory of Spatial Rendering</a></nav>
+    <nav><a href="/implementation#content">The Implementation</a></nav>
+    <nav><a href="/demo#content">The Demo</a></nav>
+    <nav><s><a href="/experiments#content">The Experiments</a></s></nav>
+    <nav><a href="/faq#content">The FAQ</a></nav>
+    <nav><a href="/about#content">About</a></nav>
+
+    <br />
+    <div>
+      <s>&copy; 2016. All rights reserved.</s>&nbsp;
+      <a href="https://creativecommons.org/"><img src="/images/license.svg" alt="CC-BY-SA 4.0" style="height: 1em"></a>
+    </div>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div style="margin-bottom: 3em; font-size: 0.75em; text-align: center;"> --- 28 June 2016 --- </div>
+
+  <h1 id="the-project">The Project</h1>
+
+<p>In the STEAK project, a telephone conferencing system is implemented that <em>(a)</em> provides spatial audio and <em>(b)</em> is legacy compatible.
+This system will provide a spatial representation (i. e., <a href="https://en.wikipedia.org/wiki/3D_audio_effect">“3D audio”</a>) of a telephone conference using binaural synthesis (i. e., a signal for each ear is computed and presented using a pair of headphones).</p>
+
+<h2 id="the-steak-project-has-two-goals">The STEAK project has two goals:</h2>
+
+<p>###1. Implementation of a <em>real</em> spatial conferencing system
+In the STEAK project, a legacy compatible spatial telephone conference system is implemented.
+If participants join a conference via <a href="https://en.wikipedia.org/wiki/Voice_over_IP">VoIP</a> (<a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a> or <a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol">SIP</a>) and are capable of reproducing <em>stereo signals</em> via a pair of headphones, then a spatial presentation can be made available to them.
+This system is legacy compatible, i. e., so participants can also join a conference call via a standard telephone.
+These participants then only receive a standard (mono-mixed) representation, which does not contain spatial cues.</p>
+
+<p>The system will be implemented using open-source components only and the final implementation is going to be released as open-source.</p>
+
+<p>###2. Research on advantages of spatial conferencing
+Spatial representation for telephone conferencing is expected to reduce the effort for participants to follow the conversation.
+In the context of the STEAK project, we are going to investigate if telephony-related artifacts, such as background noise, can be attributed to individual participants of a telephone conference.</p>
+
+<h2 id="steak-has-one-limitation-no-headtracking">STEAK has one limitation: no headtracking</h2>
+<p>The telephone conferencing system will be implemented as a <em>centralized conferencing bridge</em> (i. e., binaural rendering takes place at the <em>conference server</em>), and clients will only playback the rendered binaural signals.
+Using a centralized conferencing bridge avoids sendings the signals of all participants to all other participants and thus less bandwidth is required.
+However, the introduced delay of the central rendering and transmission prevents accounting for head rotation of participants.
+In fact, humans explore their sound environment by rotating their head and thus can select and focus on individual sound sources.
+This requires that the head rotation can be measured precisely and, if the head rotates to render the signals accordingly.
+This requires the use of a headtracker and the virtual sound scape needs to be adjusted almost instantanously.
+Due to the implementation of <em>centralized conferencing bridge</em>, such a low delay cannot be provided as the rotation must be measured, send to the server, rendered by the server, and send the rendered signals to the client.</p>
+
+<p>Thus, <em>headtracking</em> is out of scope.</p>
+
+
+  <div style="text-align: center;" class="backtotop"><a href="#content">↩</a><a href="#menu">↩</a></div>
+</div>
+
+</body>
+</html>

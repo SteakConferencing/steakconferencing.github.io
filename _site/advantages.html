@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta name="author" contents="Dennis Guse and Frank Haase">
+  <meta name="date" content='6 May 2016'>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" type="image/svg+xml" href="/images/steak-logo-centered.svg">
+  <link rel="icon" type="image/x-icon" href="/images/steak-logo-centered.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <title> The STEAK Project: The Advantages</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+  <style>
+.initialAnimation {
+position: fixed;
+padding: 0;
+margin: 0;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+
+background-image: url("/images/steak-logo.svg");
+background-repeat:no-repeat;
+background-position: center;
+background-size:30%;
+opacity:0;
+
+animation-name: initialAnimation;
+animation-duration: 4s;
+animation-fill-mode: forwards;
+}
+@keyframes initialAnimation {
+    0%   {opacity:1;background-color: red;}
+    25%  {opacity:1;background-color: yellow;}
+    50%  {opacity:1;background-color: blue;}
+    99%  {opacity:0;background-color: green;height:100%;width:100%;}
+    100% {height:0px;width:0px}
+}
+</style>
+</head>
+
+<body>
+<div class="menu" id="menu">
+  <div>
+    <h1 class="project_title">
+       <a href="/">
+         <img src="/images/steak-logo.svg" alt="Logo" style="width:8em;top:10%" /><br />
+         STEAK <p style="font-size: small">Spatial TelephonE conferencing for AsterisK</p>
+       </a>
+    </h1>
+    <br />
+
+    <nav><a href="/news#content">News</a> <small><a href="/atom.xml">(RSS Feed)</a></small></nav>
+    <nav><a href="/project#content">The Project</a></nav>
+    <nav><a href="/motivation#content">The Motivation</a></nav>
+    <nav><a href="/advantages#content">The Advantages</a></nav>
+    <nav><a href="/theory#content">The Theory of Spatial Rendering</a></nav>
+    <nav><a href="/implementation#content">The Implementation</a></nav>
+    <nav><a href="/demo#content">The Demo</a></nav>
+    <nav><s><a href="/experiments#content">The Experiments</a></s></nav>
+    <nav><a href="/faq#content">The FAQ</a></nav>
+    <nav><a href="/about#content">About</a></nav>
+
+    <br />
+    <div>
+      <s>&copy; 2016. All rights reserved.</s>&nbsp;
+      <a href="https://creativecommons.org/"><img src="/images/license.svg" alt="CC-BY-SA 4.0" style="height: 1em"></a>
+    </div>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div style="margin-bottom: 3em; font-size: 0.75em; text-align: center;"> --- 6 May 2016 --- </div>
+
+  <h1 id="the-advantages">The Advantages</h1>
+<p>Providing a spatial representation for telephone conferences is promising.
+Here, a <em>virtual</em> sound environment can be created in which all speakers are positioned.
+In addition to providing a more natural representation, a listener can exploit the added spatial information to identify and differentiate individual speakers.
+A listener can also direct his auditory attention on individual speakers that he is actively listening to.
+This is denoted as <a href="https://en.wikipedia.org/wiki/Cocktail_party_effect">cocktail party effect</a>.</p>
+
+<p>With regard to telephone conferencing, the advantages of spatial representation have been investigated to some degree mainly with regard to <a href="https://en.wikipedia.org/wiki/Quality_of_experience">perceived quality (Quality of Experience)</a>.
+Here, the advantages of spatial representation have mainly been investigated for <em>high-end</em> audio reproduction (fullband sampling, no compression, and high-end microphones and high-end pair of headphones) in laboratory experiments and rarely using production-ready or even production-capable systems.
+Using such high-end systems, it could be shown that test participants preferred the spatial reproduction and it reduces the cognitive load (e. g., Skowronek, 2015).
+Initial work has also been conducted on perception of telephony-related degradations in terms of packet-loss (Spur et al., 2015).</p>
+
+<p>Nevertheless, the potential advantages which a spatial representation might provide depend heavily on the technical implementation in terms of robustness against telephony-related degradations (recording, transmission, and reproduction) as well as practical considerations in terms of usability.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+  <li>Begault et al., <a href="http://www.aes.org/e-lib/browse.cfm?elib=9204">Direct Comparison of the Impact of Head Tracking, Reverberation, and Individualized Head-Related Transfer Functions on the Spatial Perception of a Virtual Speech Source</a>, 2000.</li>
+  <li>Yankelovich et al., <a href="http://dl.acm.org/citation.cfm?id=1180926">Improving Audio Conferencing: are Two Ears Better than One?</a>, 2006.</li>
+  <li>Raake et al., <a href="http://www.aes.org/e-lib/browse.cfm?elib=15567">Listening and Conversational Quality of Spatial Audio Conferencing</a>, 2010.</li>
+  <li>Aguilera and Gutierrez-Parera, <a href="http://www.aes.org/e-lib/online/browse.cfm?elib=17729">Improvements and User Preferences in Auralization for Multi-Party Teleconferencing Systems Using Binaural Audio</a>, 2015.</li>
+  <li>Skowronek and Raake, <a href="http://linkinghub.elsevier.com/retrieve/pii/S0167639314000764">Assessment of Cognitive Load, Speech Communication Quality and Quality of Experience for Spatial and Non-spatial Audio Conferencing Calls</a>, 2015.</li>
+  <li>Spur et al., <a href="https://www.researchgate.net/publication/299521207_Influence_of_Packet_Loss_and_Double-Talk_on_the_Perceived_Quality_of_Multi-Party_Telephone_Conferencing_with_Binaurally_Presented_Spatial_Audio_Reproduction">Influence of Packet Loss and Double-Talk on the Perceived Quality of Multi-party Telephone Conferencing with Binaurally Presented Spatial Audio Reproduction</a>, 2016.</li>
+</ul>
+
+
+  <div style="text-align: center;" class="backtotop"><a href="#content">↩</a><a href="#menu">↩</a></div>
+</div>
+
+</body>
+</html>

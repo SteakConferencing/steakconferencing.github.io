@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>The STEAK Project</title>
+ <link href="http://www.steakconferencing.de/atom.xml" rel="self"/>
+ <link href="http://www.steakconferencing.de/"/>
+ <updated>2016-11-01T19:54:19+01:00</updated>
+ <id>http://www.steakconferencing.de</id>
+ <author>
+   <name></name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Demo Retired</title>
+   <link href="http://www.steakconferencing.de"/>
+   <updated>2016-11-01T00:00:00+01:00</updated>
+   <id>http://www.steakconferencing.de/2016/11/01/demo-retired</id>
+   <content type="html">&lt;p&gt;On 1th November 2016 the &lt;a href=&quot;/demo&quot;&gt;demo&lt;/a&gt; system was retired.
+The DNS entry &lt;a href=&quot;demo.steakconferencing.de&quot;&gt;demo.steakconferencing.de&lt;/a&gt; now maps to &lt;em&gt;127.0.0.1&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For anybody to recreate the setup, the required configuration files (incl. SSL certificates) are now on &lt;a href=&quot;https://github.com/SteakConferencing/demo&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>141th Convention Of The Audio Engineering Society</title>
+   <link href="http://www.steakconferencing.de"/>
+   <updated>2016-09-29T00:00:00+02:00</updated>
+   <id>http://www.steakconferencing.de/2016/09/29/141th-Convention-of-the-Audio-Engineering-Society</id>
+   <content type="html">&lt;p&gt;Today the STEAK project was presented at the &lt;a href=&quot;http://www.aes.org/events/141/&quot;&gt;141th convention&lt;/a&gt; of the &lt;a href=&quot;http://www.aes.org&quot;&gt;Audio Engineering Society&lt;/a&gt;.
+The paper (and its latex code) is on Github &lt;a href=&quot;https://github.com/SteakConferencing/publications/blob/master/2016-09-29-aes_141th&quot;&gt;Code&lt;/a&gt;/&lt;a href=&quot;https://github.com/SteakConferencing/publications/blob/master/2016-09-29-aes_141th/paper.pdf&quot;&gt;PDF&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Astridevcon 2016</title>
+   <link href="http://www.steakconferencing.de"/>
+   <updated>2016-09-27T00:00:00+02:00</updated>
+   <id>http://www.steakconferencing.de/2016/09/27/AstriDevCon-2016</id>
+   <content type="html">&lt;p&gt;The STEAK project was presented at the annual developer conference (&lt;a href=&quot;https://wiki.asterisk.org/wiki/display/AST/AstriDevCon+2016&quot;&gt;AstriDevCon 2016&lt;/a&gt;) in Phoenix, AZ.
+The community was excited and provided valueable feedback.
+We are not going to integrate the necessary changes into the submitted patch set and are now one step closer to upstream.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Code Submitted To Upstream</title>
+   <link href="http://www.steakconferencing.de"/>
+   <updated>2016-08-12T00:00:00+02:00</updated>
+   <id>http://www.steakconferencing.de/2016/08/12/code-submitted-to-upstream</id>
+   <content type="html">&lt;p&gt;Code cleanup finished and code submitted upstream.&lt;/p&gt;
+
+&lt;p&gt;Issue request: &lt;a href=&quot;https://issues.asterisk.org/jira/browse/ASTERISK-26292&quot;&gt;ASTERISK-26292&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Links to threads on mailing list:
+* &lt;a href=&quot;http://lists.digium.com/pipermail/asterisk-dev/2016-July/075717.html&quot;&gt;July&lt;/a&gt;
+* &lt;a href=&quot;http://lists.digium.com/pipermail/asterisk-dev/2016-August/075731.html&quot;&gt;August&lt;/a&gt;
+* &lt;a href=&quot;http://lists.digium.com/pipermail/asterisk-dev/2016-October/075899.html&quot;&gt;October&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Patches:
+* &lt;a href=&quot;https://gerrit.asterisk.org/#/c/3525/&quot;&gt;1&lt;/a&gt;
+* &lt;a href=&quot;https://gerrit.asterisk.org/#/c/3523/&quot;&gt;2&lt;/a&gt;
+* &lt;a href=&quot;https://gerrit.asterisk.org/#/c/3524/&quot;&gt;3&lt;/a&gt;
+* &lt;a href=&quot;https://gerrit.asterisk.org/#/c/3522/&quot;&gt;4&lt;/a&gt;
+* &lt;a href=&quot;https://gerrit.asterisk.org/#/c/3521/&quot;&gt;5&lt;/a&gt;
+* &lt;a href=&quot;https://gerrit.asterisk.org/#/c/3521/&quot;&gt;6&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Demo Online</title>
+   <link href="http://www.steakconferencing.de"/>
+   <updated>2016-07-18T00:00:00+02:00</updated>
+   <id>http://www.steakconferencing.de/2016/07/18/demo-online</id>
+   <content type="html">&lt;p&gt;A demo of is now available.&lt;/p&gt;
+
+&lt;p&gt;For more details see &lt;a href=&quot;/demo#content&quot;&gt;The Demo&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Source Code Release Asterisk</title>
+   <link href="http://www.steakconferencing.de"/>
+   <updated>2016-07-08T00:00:00+02:00</updated>
+   <id>http://www.steakconferencing.de/2016/07/08/source-code-release-asterisk</id>
+   <content type="html">&lt;p&gt;The enhanced source code (STEAK-enabled so to say) of Asterisk is released: &lt;a href=&quot;https://github.com/steakconferencing/asterisk&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Code of the WebRTC-client released</title>
+   <link href="http://www.steakconferencing.de"/>
+   <updated>2016-06-30T00:00:00+02:00</updated>
+   <id>http://www.steakconferencing.de/2016/06/30/source-code-release-webrtc-client</id>
+   <content type="html">&lt;p&gt;The source code of the &lt;a href=&quot;https://webrtc.org/&quot;&gt;WebRTC&lt;/a&gt;-client is know availble: &lt;a href=&quot;https://github.com/steakconferencing/demo-client&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Only runs in &lt;a href=&quot;https://www.google.com/chrome/&quot;&gt;Google Chrome&lt;/a&gt; or &lt;a href=&quot;https://www.chromium.org/Home&quot;&gt;Chromium&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Website Online</title>
+   <link href="http://www.steakconferencing.de"/>
+   <updated>2016-06-28T00:00:00+02:00</updated>
+   <id>http://www.steakconferencing.de/2016/06/28/website-online</id>
+   <content type="html">&lt;p&gt;The website of the STEAK project is now online.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

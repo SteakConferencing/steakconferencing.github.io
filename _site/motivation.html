@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta name="author" contents="Dennis Guse and Frank Haase">
+  <meta name="date" content='1 June 2016'>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" type="image/svg+xml" href="/images/steak-logo-centered.svg">
+  <link rel="icon" type="image/x-icon" href="/images/steak-logo-centered.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <title> The STEAK Project: Motivation</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+  <style>
+.initialAnimation {
+position: fixed;
+padding: 0;
+margin: 0;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+
+background-image: url("/images/steak-logo.svg");
+background-repeat:no-repeat;
+background-position: center;
+background-size:30%;
+opacity:0;
+
+animation-name: initialAnimation;
+animation-duration: 4s;
+animation-fill-mode: forwards;
+}
+@keyframes initialAnimation {
+    0%   {opacity:1;background-color: red;}
+    25%  {opacity:1;background-color: yellow;}
+    50%  {opacity:1;background-color: blue;}
+    99%  {opacity:0;background-color: green;height:100%;width:100%;}
+    100% {height:0px;width:0px}
+}
+</style>
+</head>
+
+<body>
+<div class="menu" id="menu">
+  <div>
+    <h1 class="project_title">
+       <a href="/">
+         <img src="/images/steak-logo.svg" alt="Logo" style="width:8em;top:10%" /><br />
+         STEAK <p style="font-size: small">Spatial TelephonE conferencing for AsterisK</p>
+       </a>
+    </h1>
+    <br />
+
+    <nav><a href="/news#content">News</a> <small><a href="/atom.xml">(RSS Feed)</a></small></nav>
+    <nav><a href="/project#content">The Project</a></nav>
+    <nav><a href="/motivation#content">The Motivation</a></nav>
+    <nav><a href="/advantages#content">The Advantages</a></nav>
+    <nav><a href="/theory#content">The Theory of Spatial Rendering</a></nav>
+    <nav><a href="/implementation#content">The Implementation</a></nav>
+    <nav><a href="/demo#content">The Demo</a></nav>
+    <nav><s><a href="/experiments#content">The Experiments</a></s></nav>
+    <nav><a href="/faq#content">The FAQ</a></nav>
+    <nav><a href="/about#content">About</a></nav>
+
+    <br />
+    <div>
+      <s>&copy; 2016. All rights reserved.</s>&nbsp;
+      <a href="https://creativecommons.org/"><img src="/images/license.svg" alt="CC-BY-SA 4.0" style="height: 1em"></a>
+    </div>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div style="margin-bottom: 3em; font-size: 0.75em; text-align: center;"> --- 1 June 2016 --- </div>
+
+  <h1 id="the-motivation">The Motivation</h1>
+<p>Telephone conferences are one essential communication tool to maintain productivity in distributed teams, with business partners, and also in scientific research.
+This allows to discuss topics within a group and also helps maintaining personal relationships.
+In fact, telephone conferences are easy to set up and, if enabled, allow access from everywhere using a common telephone often by calling a specific telephone number and entering a code or password.
+This enables participants to join from almost anywhere, using established telecommunication network infrastructure without requiring specialized equipment.</p>
+
+<p>A telephone conferencing system (i. e., centralized conferecing bridge) receives the mono-channel transmission from each participant, mixes the signals together into <em>one</em> mono channel, and transmits the mixed signal to each participant.
+It is thus hard for a listener to identify individual speakers and understand them clearly, which is especially problematic for telephone conferences with a large number of participants.
+It also hard to articulate the desire to speak without interupting others.
+This delays the actual conversation and distracts from the underlying goal of a joint information exchange.</p>
+
+<p>The spatial presentation of the virtual <em>telephone conferencing space</em> for each participant is a promising option to overcome these limitations.
+Here, all participants are seated around a virtual table, so a listener can use the spatial information to differentiate individual speakers.
+This is enables to easier identification, which is problematic for similar sound speakers, and if cross-talk occurs listen to a specific speaker.
+A spatial presentation can be created by adding spatial cues (i. e., frequency shifts, delay, and reflections) individually for each ear of a listener.
+Presenting the resulting stereo signal via a pair of headphones creates the virtual <em>telephone conferencing space</em>.
+Beside reducing the effort for speaker identification, this might allow to attribute degradations to individual participants, such as background noise and keyboard typing noise.</p>
+
+<p>In fact, the spatial presentation for telephone conferencing has shown promising results and was already implemented several times.
+Available implementations are limited due to the required usage of specialized software or even hardware to participate in a spatialized telephone conference.</p>
+
+<p>For more details, about the mechanics of <a href="https://en.wikipedia.org/wiki/3D_audio_effect"><em>3D audio</em></a> you can take a look at <a href="{site.baseurl}/theory#content">“The Theory of Spatial Rendering”</a>.</p>
+
+
+  <div style="text-align: center;" class="backtotop"><a href="#content">↩</a><a href="#menu">↩</a></div>
+</div>
+
+</body>
+</html>

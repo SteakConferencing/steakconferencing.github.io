@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta name="author" contents="Dennis Guse and Frank Haase">
+  <meta name="date" content='23 August 2016'>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" type="image/svg+xml" href="/images/steak-logo-centered.svg">
+  <link rel="icon" type="image/x-icon" href="/images/steak-logo-centered.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <title> The STEAK Project: The Demo</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+  <style>
+.initialAnimation {
+position: fixed;
+padding: 0;
+margin: 0;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+
+background-image: url("/images/steak-logo.svg");
+background-repeat:no-repeat;
+background-position: center;
+background-size:30%;
+opacity:0;
+
+animation-name: initialAnimation;
+animation-duration: 4s;
+animation-fill-mode: forwards;
+}
+@keyframes initialAnimation {
+    0%   {opacity:1;background-color: red;}
+    25%  {opacity:1;background-color: yellow;}
+    50%  {opacity:1;background-color: blue;}
+    99%  {opacity:0;background-color: green;height:100%;width:100%;}
+    100% {height:0px;width:0px}
+}
+</style>
+</head>
+
+<body>
+<div class="menu" id="menu">
+  <div>
+    <h1 class="project_title">
+       <a href="/">
+         <img src="/images/steak-logo.svg" alt="Logo" style="width:8em;top:10%" /><br />
+         STEAK <p style="font-size: small">Spatial TelephonE conferencing for AsterisK</p>
+       </a>
+    </h1>
+    <br />
+
+    <nav><a href="/news#content">News</a> <small><a href="/atom.xml">(RSS Feed)</a></small></nav>
+    <nav><a href="/project#content">The Project</a></nav>
+    <nav><a href="/motivation#content">The Motivation</a></nav>
+    <nav><a href="/advantages#content">The Advantages</a></nav>
+    <nav><a href="/theory#content">The Theory of Spatial Rendering</a></nav>
+    <nav><a href="/implementation#content">The Implementation</a></nav>
+    <nav><a href="/demo#content">The Demo</a></nav>
+    <nav><s><a href="/experiments#content">The Experiments</a></s></nav>
+    <nav><a href="/faq#content">The FAQ</a></nav>
+    <nav><a href="/about#content">About</a></nav>
+
+    <br />
+    <div>
+      <s>&copy; 2016. All rights reserved.</s>&nbsp;
+      <a href="https://creativecommons.org/"><img src="/images/license.svg" alt="CC-BY-SA 4.0" style="height: 1em"></a>
+    </div>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div style="margin-bottom: 3em; font-size: 0.75em; text-align: center;"> --- 23 August 2016 --- </div>
+
+  <h1 id="the-demo-offline">The Demo (<strong>OFFLINE</strong>)</h1>
+
+<p><strong>Update:</strong> On 1st of November 2016 the demo system so far hosted reachable as <a href="https://demo.steakconferencing.de">demo.steakconferencing.de</a> was permanently retired.</p>
+
+<p>For anybody to recreate the setup, the required configuration files (incl. SSL certificates) are now on <a href="https://github.com/SteakConferencing/demo">Github</a> and the instructions to install the system can be found below.</p>
+
+<hr />
+
+<p>The STEAK project provides a «prodution-ready» system, so the spatial representation can be experienced without the hassle to setup the whole system.
+For reasons of technical simplicity the system is only accessible via <a href="https://webrtc.org/">WebRTC</a>.</p>
+
+<p><strong>Requirement 1:</strong> The demo system can only be used with <a href="https://www.google.com/chrome/">Google Chrome</a> or <a href="https://www.chromium.org/">Chromium</a> are supported.<sup id="fnref:browsersupport"><a href="#fn:browsersupport" class="footnote">1</a></sup></p>
+
+<p><strong>Requirement 2:</strong> A not heavily firewalled Internet connection (e. g., no cooperate networks).<sup id="fnref:firewall"><a href="#fn:firewall" class="footnote">2</a></sup>
+If you tried the demo system and did not hear anything (i. e., no incoming audio) then you might need to try a different Internet connection.</p>
+
+<h2 id="demo">Demo</h2>
+<p>Beside the above mentioned requirements, just enter your desired conference number and start talking.</p>
+
+<ol>
+  <li>Go to <strong><big><a href="https://demo.steakconferencing.de">demo.steakconferencing.de</a></big></strong> (<a href="https://www.google.com/chrome/">Google Chrome</a> or <a href="https://www.chromium.org/">Chromium</a>),</li>
+  <li>Allow request to use the microphone, and</li>
+  <li>Select a conference room (000-999) or select a demo (demo1 or demo2).</li>
+</ol>
+
+<p>The demo system is also available via a German land-line number (<strong>without spatial representation</strong>): <strong><big><a href="tel:+ 49-30/120-64-155">+ 49 30 / 120 64 155</a></big></strong></p>
+
+<p><br /></p>
+
+<p><strong>»Begin Disclaimer«</strong></p>
+
+<p>The installed system is <em>working</em>, but it is not as heavily <strong>secured</strong> as it would be required for a «production» system.</p>
+
+<p>So, use the systems only to talk about things that you would consider <em>public!</em></p>
+
+<p><strong>»End Disclaimer«</strong></p>
+
+<h2 id="hacking">@Hacking</h2>
+<p>The demo system:</p>
+
+<ul>
+  <li>does not contain (or has access to) any confidential information,</li>
+  <li>has its own 100 MBit/s uplink,</li>
+  <li>is not connected to other internal systems, and</li>
+  <li>is pretty old hardware (~2006: 4GB RAM, 2x Xeon E5-2600).</li>
+</ul>
+
+<p>If you find some <em>security</em> issues, please drop us a message (see <a href="http://www.steakconferencing.de/about">About</a>).</p>
+
+<p>If somebody breaks the demo system, enjoy your <em>victory</em> – the demo system will be repaired once or twice.
+If it happens too often, we will just shutdown the demo system forever.</p>
+
+<h2 id="the-details">The Details</h2>
+<p>The demo setup is the STEAK-enhanced <a href="http://www.asterisk.org/">Asterisk</a> server running on an <a href="https://www.archlinux.org/">Arch Linux</a>.
+For easier setup, the demo is implemented using <a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol">SIP</a> over <a href="https://webrtc.org/">WebRTC</a>.
+This avoids dowloading, installing, and configuring a dedicated client as a <a href="https://webrtc.org/">WebRTC</a>-capable webbrowser can act as a client.</p>
+
+<p>The setup works as follows:</p>
+
+<p>The <a href="http://www.asterisk.org/">Asterisk</a> provides a built-in <a href="https://en.wikipedia.org/wiki/Web_server">HTTP</a> server reachable as <a href="https://demo.steakconferencing.de">demo.steakconferencing.de</a>.
+Visiting this webpage with a <a href="https://webrtc.org/">WebRTC</a>-capabable webbrowser, downloads the demo-client (standalone HTML using <a href="http://sipjs.com/">SIP.js</a>).
+This client then connects to the built-in <a href="https://en.wikipedia.org/wiki/Web_server">HTTP</a> server and upgrades the connection to a <a href="https://en.wikipedia.org/wiki/WebSocket">WebSocket</a> connection.
+Using this connection, the client registers at the <a href="http://www.asterisk.org/">Asterisk</a> server (<a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol">SIP</a> register) and on success initiates a call (<a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol">SIP</a> invite).
+The <a href="http://www.asterisk.org/">Asterisk</a> server accepts the incoming call and creates/connects the call to a spatialized conferencing bridge  – the called number is the identifier of the conference bridge.
+Here, both, client and server, establish an unidirectional <a href="https://en.wikipedia.org/wiki/Real-time_Transport_Protocol">RTP</a> connection for transmission of the speech data.
+The server might send spatially rendered signals while the clients only sends the signal of his microphone.
+During the call, <a href="https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling">DTFM</a> can be used to activate or deactivate the spatialized representation.</p>
+
+<p>For incoming calls via the German land-line number (it is just <a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol">SIP</a>), the procedure is the same except that the server registers at a remote party, which transforms land-line calls to <a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol">SIP</a>.</p>
+
+<p>For practical reasons, the server is not available using <a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol">SIP</a>.</p>
+
+<p>The demo system uses the <a href="https://github.com/SoundScapeRenderer/ssr/tree/master/data/impulse_responses/hrirs">Fabian HRTFs</a>.</p>
+
+<h2 id="installation">Installation</h2>
+<p>In the following it is explained how to build the STEAK-enhanced Asterisk (v13.6.0).
+This guide was tested on <a href="http://releases.ubuntu.com/16.04/">Ubuntu 16.04</a>.</p>
+
+<p>For details about Asterisk and its building procedure please see <a href="https://wiki.asterisk.org/wiki/display/AST/Building+and+Installing+Asterisk">here</a>.</p>
+
+<h3 id="software-requirements">Software requirements</h3>
+
+<ul>
+  <li><a href="http://www.pjsip.org/">PJSIP</a> (v2.4.5) (<a href="http://svn.pjsip.org/repos/pjproject/tags/2.4.5/">download</a>)</li>
+  <li><a href="https://www.opus-codec.org/">Opus</a> (v1.1)</li>
+  <li><a href="http://www.fftw.org/">libfftw</a> (v3.3.4)</li>
+</ul>
+
+<p><strong>ATTENTION:</strong> PJSIP must be used in version 2.4.5!
+Some patches for required in Asterisk to work with newer versions were not backported to v13.6.0.</p>
+
+<p>###Install requirements
+<code>shell
+sudo apt install build-essential subversion git
+sudo apt build-dep asterisk
+sudo apt install libopus-dev libfftw3-dev
+</code></p>
+
+<p><strong>ATTENTION:</strong> For <code>build-dep</code> it is required to enable the source repositories. See /etc/apt/sources.lists.
+After editing run <code>sudo apt update</code>.</p>
+
+<p>###Build and install PJSIP v2.4.5.</p>
+
+<pre><code class="language-shell">svn co http://svn.pjsip.org/repos/pjproject/tags/2.4.5/
+cd 2.4.5
+./configure --prefix=/usr --enable-shared --disable-sound --disable-resample --disable-video --disable-opencore-amr CFLAGS='-O2 -DNDEBUG'
+make dep &amp;&amp; make &amp;&amp; sudo make install
+</code></pre>
+
+<p>###Download STEAK-enhanced Asterisk source code:
+<code>git clone -b steak-13.6.0 --single-branch https://github.com/steakconferencing/asterisk</code></p>
+
+<p>###Prepare building:
+<code>cd asterisk &amp;&amp; ./bootstrap &amp;&amp; ./configure</code></p>
+
+<p>###Configure
+<code>make menuselect</code>: disable <code>chan_sip</code> and enable <code>chan_pjsip</code></p>
+
+<p>###Build and install:
+<code>make &amp;&amp; sudo make install</code></p>
+
+<p>###Install configuration files from <a href="https://github.com/SteakConferencing/demo">Github</a></p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:browsersupport">
+      <p>The demo system only supports <a href="https://www.google.com/chrome/">Google Chrome</a> or <a href="https://www.chromium.org/">Chromium</a> as we lack the resources to account for the vast number of (also changing) differences between browser implementations. <a href="#fnref:browsersupport" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:firewall">
+      <p>A firewall might allow to initiate the call (i.thinsp;e., signaling succeeds) as it is handled through <a href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>. However, then client and server try to establish <a href="https://en.wikipedia.org/wiki/Real-time_Transport_Protocol">RTP</a>-connections to transmit audio. If the firefall prevents these connections, no audio will be received at both sides. <a href="#fnref:firewall" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+  <div style="text-align: center;" class="backtotop"><a href="#content">↩</a><a href="#menu">↩</a></div>
+</div>
+
+</body>
+</html>

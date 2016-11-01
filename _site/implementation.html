@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta name="author" contents="Dennis Guse and Frank Haase">
+  <meta name="date" content='8 July 2016'>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" type="image/svg+xml" href="/images/steak-logo-centered.svg">
+  <link rel="icon" type="image/x-icon" href="/images/steak-logo-centered.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <title> The STEAK Project: Implementation</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+  <style>
+.initialAnimation {
+position: fixed;
+padding: 0;
+margin: 0;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+
+background-image: url("/images/steak-logo.svg");
+background-repeat:no-repeat;
+background-position: center;
+background-size:30%;
+opacity:0;
+
+animation-name: initialAnimation;
+animation-duration: 4s;
+animation-fill-mode: forwards;
+}
+@keyframes initialAnimation {
+    0%   {opacity:1;background-color: red;}
+    25%  {opacity:1;background-color: yellow;}
+    50%  {opacity:1;background-color: blue;}
+    99%  {opacity:0;background-color: green;height:100%;width:100%;}
+    100% {height:0px;width:0px}
+}
+</style>
+</head>
+
+<body>
+<div class="menu" id="menu">
+  <div>
+    <h1 class="project_title">
+       <a href="/">
+         <img src="/images/steak-logo.svg" alt="Logo" style="width:8em;top:10%" /><br />
+         STEAK <p style="font-size: small">Spatial TelephonE conferencing for AsterisK</p>
+       </a>
+    </h1>
+    <br />
+
+    <nav><a href="/news#content">News</a> <small><a href="/atom.xml">(RSS Feed)</a></small></nav>
+    <nav><a href="/project#content">The Project</a></nav>
+    <nav><a href="/motivation#content">The Motivation</a></nav>
+    <nav><a href="/advantages#content">The Advantages</a></nav>
+    <nav><a href="/theory#content">The Theory of Spatial Rendering</a></nav>
+    <nav><a href="/implementation#content">The Implementation</a></nav>
+    <nav><a href="/demo#content">The Demo</a></nav>
+    <nav><s><a href="/experiments#content">The Experiments</a></s></nav>
+    <nav><a href="/faq#content">The FAQ</a></nav>
+    <nav><a href="/about#content">About</a></nav>
+
+    <br />
+    <div>
+      <s>&copy; 2016. All rights reserved.</s>&nbsp;
+      <a href="https://creativecommons.org/"><img src="/images/license.svg" alt="CC-BY-SA 4.0" style="height: 1em"></a>
+    </div>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div style="margin-bottom: 3em; font-size: 0.75em; text-align: center;"> --- 8 July 2016 --- </div>
+
+  <h1 id="the-implementation">The Implementation</h1>
+<p>The STEAK project extends the open-source software <a href="http://www.asterisk.org">Asterisk</a>, a widely used <a href="https://en.wikipedia.org/wiki/Business_telephone_system#Private_branch_exchange">PBX</a> server.
+The extensions allows to provide one virtual <em>telephone conferencing space</em> per telephone conference with <a href="https://en.wikipedia.org/wiki/3D_audio_effect"><em>3D Audio</em></a> if desired and technically possible.
+Asterisk by itself provides connectivity to almost every telephone technology and is thus backwards compatibility on its own.<sup id="fnref:reason"><a href="#fn:reason" class="footnote">1</a></sup></p>
+
+<p>And their nice and active community is a plus.</p>
+
+<p><a href="http://www.asterisk.org">Asterisk</a> was extended with two features:</p>
+
+<p>###1. Stereo Functionality
+So far <a href="http://www.asterisk.org">Asterisk</a> is only capable of handling mono signals (one channel) and must be extended to be able to transmit spatially rendered stereo signals.
+This is achieved by enabling support for the speech and audio codec <a href="https://www.opus-codec.org/">OPUS</a>.
+Beside stereo transmission, this codec provides state-of-the-art and can also be used to transmit high-end audio content.
+In fact, until now <a href="http://www.asterisk.org">Asterisk</a> only supported mono signals and thus the internal signal processing needs to be adapted.</p>
+
+<p>###2. Spatial Rendering for Spatial Presentation
+In addition to stereo support, the default conference bridge of <a href="http://www.asterisk.org">Asterisk</a> (<a href="https://github.com/asterisk/asterisk/blob/master/apps/app_confbridge.c">app_confbridge.c</a>) is extended by spatial rendering capability for binaural representation.</p>
+
+<h2 id="the-code">The Code</h2>
+
+<p>The source code of the STEAK project can be found on <a href="https://github.com/">Github</a>: <a href="https://github.com/steakconferencing">https://github.com/SteakConferencing</a>.</p>
+
+<p>This includes:</p>
+
+<ul>
+  <li>the STEAK-enhanced version of <a href="http://www.asterisk.org">Asterisk</a>,</li>
+  <li>the demo setup with <a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a> clients, and</li>
+  <li>this <a href="https://github.com/steakconferencing/website">website</a>.</li>
+</ul>
+
+<h2 id="the-details">The Details</h2>
+<p>In the following, the technical details of the STEAK project are conceptually explained.
+For more details, please take a look at the source code.</p>
+
+<h3 id="adding-the-stereo-capable-codec-opushttpswwwopus-codecorg">Adding the Stereo-capable Codec <a href="https://www.opus-codec.org/">OPUS</a></h3>
+<p>The audio codec <a href="https://www.opus-codec.org/">OPUS</a> was selected for the implementation of the STEAK project.
+This codec allows to transmit <em>two</em> audio signals in one <a href="https://en.wikipedia.org/wiki/Real-time_Transport_Protocol">Real-time Transport Protocol (RTP)</a> connection<sup id="fnref:rtp-profile"><a href="#fn:rtp-profile" class="footnote">2</a></sup>.
+In difference to using two <a href="https://en.wikipedia.org/wiki/Real-time_Transport_Protocol">RTP</a>-connections, which is possible but a non-standard approach, this avoids to synchronize the received audio streams at the client-side, as the synchronization is handled by the codec itself.
+<a href="https://www.opus-codec.org/">OPUS</a> was choosen over alternatives (e. g., <a href="https://en.wikipedia.org/wiki/Adaptive_Multi-Rate_Wideband">AMR-WB+</a>) as <em>(a)</em> it is recommended for <a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a>, <em>(b)</em> it can be used to send speeech and audio content, and <em>(c)</em> also provides on-the-fly adjustments (e. g., bandwidth and compression adjustments).
+Sadly, <a href="http://www.asterisk.org">Asterisk</a> does not (yet?) include <a href="https://www.opus-codec.org/">OPUS</a> due to potential issues with patent infringments in the USA and the potential legal risks <a href="https://www.ietf.org/mail-archive/web/codec/current/msg03011.html">(see here)</a>.
+Nevertheless, patches for <a href="http://www.asterisk.org">Asterisk</a> are available that add <a href="https://www.opus-codec.org/">OPUS</a> support (passthrough and signal processing): <a href="https://github.com/meetecho/asterisk-opus">https://github.com/meetecho/asterisk-opus</a>.</p>
+
+<p>This modification boils down to adding the files <code>codec/codec_opus.h</code> and <code>codec/ex_opus.h</code> as well as adding the <em>include flags and linker flags</em> for libopus to the build process of <a href="http://www.asterisk.org">Asterisk</a>.</p>
+
+<h3 id="modifying-internal-signal-processing">Modifying Internal Signal Processing</h3>
+<p><a href="http://www.asterisk.org">Asterisk</a> provides signal processing only for <em>mono</em> signals, as almost any telephone-related system.
+Adding stereo to <a href="http://www.asterisk.org">Asterisk</a> is however straight forward.
+Out-of-the-box <a href="http://www.asterisk.org">Asterisk</a> provides internal (mono) translation between different sampling rates and also codecs.
+This functionality enables <a href="http://www.asterisk.org">Asterisk</a> to connect telephone calls between clients that use different codecs while <a href="http://www.asterisk.org">Asterisk</a> handles the codec translation.</p>
+
+<p>Required changes are:</p>
+
+<h4 id="signaling">Signaling</h4>
+<p>Before an actual telephone call, a client connects to the remote party and signals its interest in establishing a call.
+In this so-called <em>signaling phase</em> the client and the remote party inform each other about their interest, their technical capabilities (mainly supported codecs), and connection information.
+A client that supports sending and receiving <em>stereo</em> via <a href="https://www.opus-codec.org/">OPUS</a> needs to annouce this capability and <a href="http://www.asterisk.org">Asterisk</a> was extended to also annouce, understand, and this capability and flag the connection to be stereo-capable.</p>
+
+<p>In terms of <a href="http://www.asterisk.org">Asterisk</a>, the connection between a client and <a href="http://www.asterisk.org">Asterisk</a> is denoted as <a href="https://wiki.asterisk.org/wiki/display/AST/Channels">channel</a>.
+The data structure describing the channel is extended to contain the information about the stereo capability.
+Precisely, this modification is done in struct <code>ast_trans_pvt</code> by adding the boolean value <code>stereo</code>.</p>
+
+<h4 id="internal-audio-signal-handling">Internal Audio Signal Handling</h4>
+<p>If in the <em>signaling phase</em> stereo capability was annouced by both sides and is going to be used, the internal signal processing of <a href="http://www.asterisk.org">Asterisk</a> must be aware of this.
+Internally <a href="http://www.asterisk.org">Asterisk</a> uses buffers containing <em>mono</em> audio data (depending on the use: compressed or uncompressed).
+These buffers were not modified but instead can now also be filled with <em>stereo</em> audio data (interleaved).
+Here, a buffer contains alternatingly one sample per channel (left and right).</p>
+
+<p>A translation between stereo channels and mono channels is also implemented for sake of completeness.
+However, this is in general only wasting processing power and both parties should negate to a mono-only transmission.</p>
+
+<h3 id="extending-the-default-conference-bridge">Extending the Default Conference Bridge</h3>
+<p>The default conference bridge (<a href="https://github.com/asterisk/asterisk/blob/master/apps/app_confbridge.c">app_confbridge.c</a>) mixes the incoming <em>mono</em> signals of all connected channels.
+Here, a <a href="https://en.wikipedia.org/wiki/Voice_activity_detection">voice activity detection</a> algorithm is applied (i. e., non-speaking participants are not mixed), volume adjustments applied, and the resulting <em>mono</em> signals are added together into <em>one</em> mono signal for each participant.
+The default conference bridge is modified, so <em>mono</em> channels as well as <em>stereo</em> channels can be connected.
+For <em>stereo</em>-capable channels a spatial presentation is rendered via convolution using <a href="http://www.fftw.org/">libfftw</a> for the left ear and right ear.
+The rendered signals of all participants are then mixed together by ear, respectively.
+All <em>mono</em> channels receive the signals mixed with the same algorithm as the default conferencing bridge while all <em>stereo</em>-capable channels will receive a spatial representation.</p>
+
+<p>The following limitation are introduced:</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Head-related_transfer_function">HRTFs</a> are compiled into the module and thus cannot be changed at runtime.</li>
+  <li>Only <em>one</em> set of <a href="https://en.wikipedia.org/wiki/Head-related_transfer_function">HRTFs</a> is used for convolution and thus no individualized <a href="https://en.wikipedia.org/wiki/Head-related_transfer_function">HRTFs</a> can be used (this also affects compensation for the frequency response of head phones).</li>
+</ul>
+
+<p>One note about scheduling:</p>
+
+<p>No multi-threading is implemented for the STEAK-enhanced conference bridge (or used in <a href="http://www.fftw.org/">libfftw</a>), i. e., a <em>running</em> conference is rendered using one thread/processor only.
+This reduces implementation effort and, furthermore, scheduling for the whole system is handled by <a href="http://www.asterisk.org">Asterisk</a> itself.</p>
+
+<p>That’s all.</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:reason">
+      <p>One reason for choosing <a href="http://www.asterisk.org">Asterisk</a> over other systems was that a lot of prior knowledge about <a href="http://www.asterisk.org">Asterisk</a> and its internal signal processing was available in the team. <a href="#fnref:reason" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:rtp-profile">
+      <p>For an overview on multi-channel enabled RTP profiles see <a href="https://en.wikipedia.org/wiki/RTP_audio_video_profile">Wikipedia</a>. <a href="#fnref:rtp-profile" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+  <div style="text-align: center;" class="backtotop"><a href="#content">↩</a><a href="#menu">↩</a></div>
+</div>
+
+</body>
+</html>
